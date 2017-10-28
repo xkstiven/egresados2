@@ -27,3 +27,4 @@ class EgresadoEliminar(DeleteView):
 	model = Egresado
 	template_name= 'egresado/egresado_delete.html'
 	success_url= reverse_lazy('egresado:egresado_listar')
+

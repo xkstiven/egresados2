@@ -11,15 +11,12 @@ class RegistroForm(UserCreationForm):
 		model = User
 		fields = [
 				'username',
-				'first_name',
-				'last_name',
 				'email',
 			]
 		labels = {
-				'username': 'Ingrese Correo',
-				'first_name': 'Nombre',
-				'last_name': 'Apellidos',
+				'username': 'Nombre usuario',
 				'email':'Confirme correo',
+
 		}
 		widgets={
 		}

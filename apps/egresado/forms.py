@@ -8,6 +8,7 @@ class EgresadoForm(forms.ModelForm):
 		model = Egresado
 
 		fields = [
+			'usuario',
 			'nombre',
 			'apellidos',
 			'codigo',
@@ -18,9 +19,11 @@ class EgresadoForm(forms.ModelForm):
 			'pais',
 			'departamento',
 			'interes',
+			'administrador',
 		]
 
 		labels = {
+			'usuario':'Usuario',
 			'nombre':'Nombre',
 			'apellidos': 'Apellidos',
 			'codigo': 'Cedula',
@@ -31,9 +34,11 @@ class EgresadoForm(forms.ModelForm):
 			'pais':'Pais',
 			'departamento':'Departamento',
 			'interes':'Interes',
+			'administrador':'desea enviar solicitud apra ser un administrador del sistema',
 		}
 
 		widgets={
+		'usuario':forms.Select(attrs={'class':'form-control'}),
 		'nombre': forms.TextInput(attrs={'class':'form-control'}),
 		'apellidos':forms.TextInput(attrs={'class':'form-control'}),
 		'codigo': forms.TextInput(attrs={'class':'form-control'}),
@@ -43,4 +48,5 @@ class EgresadoForm(forms.ModelForm):
 		'pais':forms.Select(attrs={'class':'form-control'}),
 		'departamento':forms.Select(attrs={"name":"select_0",'class':'form-control'}),
 		'interes':forms.CheckboxSelectMultiple(),
+		'administrador':forms.CheckboxInput(),
 		}
