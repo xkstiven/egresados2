@@ -45,5 +45,5 @@ class Egresado(models.Model):
 	sexo= models.ForeignKey(Sexo,null=True,blank=True)
 	departamento= models.ForeignKey(Departamento,null=True,blank=True)
 	pais= models.ForeignKey(Pais,null=True,blank=True)
-	interes = models.ManyToManyField(Interes,null=True,blank=True)
+	interes = models.ManyToManyField(Interes,blank=True)
 	administrador = models.BooleanField()
