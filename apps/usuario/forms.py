@@ -12,10 +12,12 @@ class RegistroForm(UserCreationForm):
 		fields = [
 				'username',
 				'email',
+				'is_active',
 			]
 		labels = {
 				'username': 'Nombre usuario',
 				'email':'Confirme correo',
+				'is_active': 'activo',
 
 		}
 		widgets={

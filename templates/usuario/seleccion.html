@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+Egresados
+{% endblock %}
+{% block navbar%}
+
+{% endblock %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+    <div>
+        <div class="col-md-6 col-md-offset-4">
+            <h1>Bienvenido {{user.username}}</h1>
+            <br>
+        </div>
+    </div>
+    <div>
+        <div class="col-md-6 col-md-offset-4">
+            <img style="margin: 0 0 0px 0px; float: left;" src="https://icon-icons.com/icons2/665/PNG/512/observatory_icon-icons.com_60272.png" alt="Castle" width="140" height="140" />
+            <br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <a class="btn btn-default" href="{% url 'usuario:egresado_index' %}">Continuar como Egresado</a>
+            <a class="btn btn-default" href="{% url 'usuario:administrador_index' %}">Continuar como Administrador</a>
+        </div>
+    </div>
+
+
+
+{% endblock %}

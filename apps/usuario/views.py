@@ -4,6 +4,7 @@ from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, redirect
 
+
 from apps.usuario.forms import RegistroForm
 
 class RegistroUsuario(CreateView):
@@ -23,3 +24,12 @@ class SolicitudDelete(DeleteView):
 	model = User
 	template_name ='usuario/usuario_delete.html'
 	seccess_url = reverse_lazy('usuario/usuario_list.html')
+
+def Selecccion(request):
+	return render(request,'usuario/seleccion.html')
+
+def Egresado(request):
+	return render(request,'egresado/index.html')
+
+def Administrador(request):
+	return render(request,'usuario/admIndex.html')

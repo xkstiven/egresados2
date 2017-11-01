@@ -1,5 +1,11 @@
 {% extends 'base/base.html' %}
 
+{% block title %}
+Egresados
+{% endblock %}
+{% block navbar%}
+
+{% endblock %}
 {% block content %}
 <form method="post">
 	{% csrf_token %}
@@ -33,6 +39,14 @@
 			<div class="form-group">
 				<label >Confirmar contraseña</label>
 				<input class="form-control" type="password" name="password2">
+			</div>
+		</div>
+	</div>
+	<div class="row" style='display:none;'>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label >Activo</label>
+				<input class="form-control" type="checkbox" name="is_active">
 			</div>
 		</div>
 	</div>
