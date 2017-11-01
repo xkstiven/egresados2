@@ -5,13 +5,19 @@ from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, redirect
 
 
-from apps.usuario.forms import RegistroForm
+from apps.usuario.forms import RegistroForm, Perfil
 
 class RegistroUsuario(CreateView):
 	model = User
 	template_name = "usuario/registrar.html"
 	form_class = RegistroForm
 	success_url = reverse_lazy('login')
+
+class SolicitudAceptar(UpdateView):
+	model= User
+	form_class = Perfil
+	template_name= 'usuario/aceptar.html'
+	success_url= reverse_lazy('usuario:usuario_listar')
 
 class SolicitudRegistro(ListView):
 	model = User

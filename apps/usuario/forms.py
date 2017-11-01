@@ -22,3 +22,9 @@ class RegistroForm(UserCreationForm):
 		}
 		widgets={
 		}
+		
+class Perfil(forms.ModelForm):
+	class Meta:
+		model = User
+		fields = ['is_active']
+		labels = {'is_active':'activar'}
