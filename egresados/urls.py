@@ -15,15 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from egresados.views import principal
+from egresados.views import principal, login_page
 from django.contrib.auth.views import login, logout_then_login, password_reset, password_reset_done, password_reset_confirm, password_reset_complete
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',principal,name="principal"),
     url(r'^usuario/', include('apps.usuario.urls', namespace='usuario')),
     url(r'^egresado/', include('apps.egresado.urls', namespace='egresado')),
-    url(r'^accounts/login',login, {'template_name': 'index.html'}, name= 'login' ),
     url(r'^logout/',logout_then_login,name= "logout"),
     url(r'^reset/password_reset', password_reset, 
         {'template_name':'registration/password_reset_form.html',
@@ -38,4 +38,9 @@ urlpatterns = [
         ),
     url(r'^reset/done', password_reset_complete, {'template_name': 'registration/password_reset_complete.html'},
         name='password_reset_complete'),
+    url(r'^login/$',login_page,name="login"),
+    url(r'^accounts/login',login_page, name= 'login2' ),
 ]
+
+
+#url(r'^accounts/login',login, {'template_name': 'index.html'}, name= 'login' ),

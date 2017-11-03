@@ -18,7 +18,7 @@
 			<td>{{ solicitud.email }}</td>
 			<td>{{ solicitud.username }}</td>	
 			<td>
-				<a class="btn btn-primary" href="{% url 'usuario:usuario_aceptar' solicitud.id %}">Editar</a>
+				<a class="btn btn-primary" href="{% url 'usuario:usuario_aceptar' solicitud.id %}">Aceptar</a>
 				<a class="btn btn-danger" href="{% url 'usuario:usuario_eliminar' solicitud.id%}">Eliminar</a>
 			</td>
 		</tr>
