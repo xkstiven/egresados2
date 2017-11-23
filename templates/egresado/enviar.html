@@ -1,0 +1,30 @@
+{% extends 'base/baseEgresado.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>Nombre</td>
+			<td>Apellidos</td>
+		</tr>
+		
+	</thead>
+	<tbody>
+		{%if object_list %}
+		{%for egresado in object_list %}
+		<tr>
+			<td>{{egresado.usuario.first_name}}</td>
+			<td>{{egresado.usuario.last_name}}</td>
+			<td>
+				<a class="btn btn-primary" href="{% url 'egresado:amigo_agregar' egresado.id%}">Enviar Solicitud</a>
+			</td>
+		</tr>
+		{%endfor%}
+
+		{%else%}
+		<h1>No sugerencias disponibles</h1>
+		{%endif%}
+	</tbody>
+</table> 
+{% endblock%}

@@ -1,6 +1,25 @@
 from django import forms
 
-from apps.egresado.models import Egresado
+from apps.egresado.models import Egresado, Interes, Amigos
+
+
+class AmigoForm(forms.ModelForm):
+	class Meta:
+		model = Amigos
+		fields = ['aceptado']
+		
+class AmigoAcep(forms.ModelForm):
+	class Meta:
+		model = Amigos
+		fields=['persona','first_name','last_name','amigo','aceptado']
+		widgets={'aceptado':forms.CheckboxInput()}
+
+class InteresForm(forms.ModelForm):
+	class Meta:
+		model = Interes
+		fields=['nombre']
+		labels= {'nombre':'Nombre'}
+		widgets={'nombre':forms.TextInput(attrs={'class':'form-control'})}
 
 class EgresadoFormAdm(forms.ModelForm):
 	
@@ -9,8 +28,6 @@ class EgresadoFormAdm(forms.ModelForm):
 
 		fields = [
 			'usuario',
-			'nombre',
-			'apellidos',
 			'codigo',
 			'fecha_nacimiento',
 			'carrera',
@@ -19,13 +36,10 @@ class EgresadoFormAdm(forms.ModelForm):
 			'pais',
 			'departamento',
 			'interes',
-			'administrador',
 		]
 
 		labels = {
 			'usuario':'Usuario',
-			'nombre':'Nombre',
-			'apellidos': 'Apellidos',
 			'codigo': 'Cedula',
 			'fecha_nacimiento':'Fecha Nacimiento',
 			'carrera':'Carrera',
@@ -34,13 +48,10 @@ class EgresadoFormAdm(forms.ModelForm):
 			'pais':'Pais',
 			'departamento':'Departamento',
 			'interes':'Interes',
-			'administrador':'desea enviar solicitud apra ser un administrador del sistema',
 		}
 
 		widgets={
 		'usuario':forms.Select(attrs={'class':'form-control'}),
-		'nombre': forms.TextInput(attrs={'class':'form-control'}),
-		'apellidos':forms.TextInput(attrs={'class':'form-control'}),
 		'codigo': forms.TextInput(attrs={'class':'form-control'}),
 		'fecha_nacimiento':forms.TextInput(attrs={'class':'form-control'}),
 		'carrera':forms.Select(attrs={'class':'form-control'}),
@@ -49,7 +60,6 @@ class EgresadoFormAdm(forms.ModelForm):
 		'pais':forms.Select(attrs={'class':'form-control'}),
 		'departamento':forms.Select(attrs={"name":"select_0",'class':'form-control'}),
 		'interes':forms.CheckboxSelectMultiple(),
-		'administrador':forms.CheckboxInput(),
 		}
 
 class EgresadoForm(forms.ModelForm):
@@ -58,8 +68,6 @@ class EgresadoForm(forms.ModelForm):
 		model = Egresado
 
 		fields = [
-			'nombre',
-			'apellidos',
 			'codigo',
 			'fecha_nacimiento',
 			'carrera',
@@ -68,12 +76,9 @@ class EgresadoForm(forms.ModelForm):
 			'pais',
 			'departamento',
 			'interes',
-			'administrador',
 		]
 
 		labels = {
-			'nombre':'Nombre',
-			'apellidos': 'Apellidos',
 			'codigo': 'Cedula',
 			'fecha_nacimiento':'Fecha Nacimiento',
 			'carrera':'Carrera',
@@ -82,12 +87,9 @@ class EgresadoForm(forms.ModelForm):
 			'pais':'Pais',
 			'departamento':'Departamento',
 			'interes':'Interes',
-			'administrador':'desea enviar solicitud apra ser un administrador del sistema',
 		}
 
 		widgets={
-		'nombre': forms.TextInput(attrs={'class':'form-control'}),
-		'apellidos':forms.TextInput(attrs={'class':'form-control'}),
 		'codigo': forms.TextInput(attrs={'class':'form-control'}),
 		'fecha_nacimiento':forms.TextInput(attrs={'class':'form-control'}),
 		'carrera':forms.Select(attrs={'class':'form-control'}),
@@ -96,5 +98,6 @@ class EgresadoForm(forms.ModelForm):
 		'pais':forms.Select(attrs={'class':'form-control'}),
 		'departamento':forms.Select(attrs={"name":"select_0",'class':'form-control'}),
 		'interes':forms.CheckboxSelectMultiple(),
-		'administrador':forms.CheckboxInput(),
 		}
+
+

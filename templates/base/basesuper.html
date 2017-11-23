@@ -29,15 +29,15 @@
 		                      		<li class="dropdown">
 		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Usuarios <span class="caret"></span></a>
 				                        <ul class="dropdown-menu" role="menu">
-				                        	<li><a href="{% url 'usuario:usuario_listar' %}">Solicitudes</a></li>
+				                        	<li><a href="{%url 'usuario:admin_listar'%}">Administradores</a></li>
 				                        </ul>
 		                      		</li>
 		                    	</ul>
 		                    	<ul class="nav navbar-nav">
 		                      		<li class="dropdown">
-		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Noticias <span class="caret"></span></a>
+		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Intereses <span class="caret"></span></a>
 				                        <ul class="dropdown-menu" role="menu">
-				                        	<li><a href="{#}">Nueva</a></li>
+				                        	<li><a href="{%url 'egresado:interes_crear'%}">Nuevo</a></li>
 				                        	<li><a href="{#}">Listar</a></li>
 
 				                        </ul>

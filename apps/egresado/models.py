@@ -36,8 +36,6 @@ class Carrera(models.Model):
 
 class Egresado(models.Model):
 	usuario= models.ForeignKey(User,null=True,blank=True)
-	nombre= models.CharField(max_length=50,null=True)
-	apellidos = models.CharField(max_length= 100,null=True)
 	codigo = models.CharField(max_length=10,null=True)
 	fecha_nacimiento = models.DateField(null=True)
 	carrera = models.ForeignKey(Carrera,null=True,blank=True)
@@ -46,4 +44,11 @@ class Egresado(models.Model):
 	departamento= models.ForeignKey(Departamento,null=True,blank=True)
 	pais= models.ForeignKey(Pais,null=True,blank=True)
 	interes = models.ManyToManyField(Interes,blank=True)
-	administrador = models.BooleanField()
+
+
+class Amigos(models.Model):
+	persona = models.ForeignKey(User,null=True,related_name='persona')
+	first_name = models.CharField(max_length=50,null=True)
+	last_name =models.CharField(max_length=50,null=True)
+	amigo = models.ForeignKey(Egresado,null=True,related_name='amigo')
+	aceptado = models.BooleanField()

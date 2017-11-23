@@ -7,18 +7,16 @@
 		<tr>
 			<td>Nombre</td>
 			<td>Apellidos</td>
-			<td>Correo</td>
-			<td>Nombre Usuario</td>
+			<td>correo</td>
 		</tr>
 	</thead>
 	<tbody>
 		{% if object_list %}
 		{% for solicitud in object_list %}
 		<tr>
-			<td>{{ solicitud.first_name}}</td>
-			<td>{{ solicitud.last_name}}</td>
-			<td>{{ solicitud.email }}</td>
-			<td>{{ solicitud.username }}</td>	
+			<td>{{ solicitud.first_name }}</td>
+			<td>{{ solicitud.last_name }}</td>
+			<td>{{ solicitud.email }}</td>	
 			<td>
 				<a class="btn btn-primary" href="{% url 'usuario:usuario_aceptar' solicitud.id %}">Aceptar</a>
 				<a class="btn btn-danger" href="{% url 'usuario:usuario_eliminar' solicitud.id%}">Eliminar</a>
@@ -27,7 +25,7 @@
 		{% endfor %}
 		
 		{% else %}
-		<h1>No hay solicitudes pendientes</h1>
+		<h1>No hay registros de solicitudes</h1>
 		{% endif %}
 	</tbody>
 </table> 

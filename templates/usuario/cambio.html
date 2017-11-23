@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+Cambio de clave
+{% endblock %}
+{% block navbar%}
+
+{% endblock %}
+
+{% block content %}
+
+
+			<li>Usted esta ingresando a la plataforma por primera vez</li>
+			<li>tendra que cambiar la contraseña</li>
+	<a class="btn btn-primary" href="{% url 'usuario:change_password' %}">Precione para continuar</a>
+
+{% endblock %}

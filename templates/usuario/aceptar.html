@@ -9,12 +9,31 @@ Egresados
 {% block content %}
 <form method="post">
 	{% csrf_token %}
+	<h3>¿Desea aceptar la solicitud de: <h3> 
+	<h3>usuario:	{{ object.username}} </h3>
+	<h3>Correo: {{ object.email }}</h3>
 	
 	<div class="row" style='display:none;'>
 		<div class="col-md-8 col-md-offset-2">
 			<div class="form-group">
 				<label >Nombre de Usuario</label>
 				<input class="form-control" type="text" name="username">
+			</div>
+		</div>
+	</div>
+	<div class="row" style='display:none;'>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label >Nombres:</label>
+				<input class="form-control" type="text" name="first_name">
+			</div>
+		</div>
+	</div>
+	<div class="row" style='display:none;'>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label >Apellidos</label>
+				<input class="form-control" type="text" name="last_name">
 			</div>
 		</div>
 	</div>
@@ -43,12 +62,10 @@ Egresados
 		</div>
 	</div>
 	<div class="row" >
-		<div class="col-md-8 col-md-offset-2">
-			<div class="form-group">
-				<label >Activo</label>
+		
+				<label >Marque la casilla para aceptar al usuario</label>
 				<input class="form-control" type="checkbox" name="is_active">
-			</div>
-		</div>
+		
 	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-5">

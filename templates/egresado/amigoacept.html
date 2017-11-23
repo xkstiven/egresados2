@@ -1,0 +1,28 @@
+{% extends 'base/baseEgresado.html' %}
+
+{% block title %}
+Egresados
+{% endblock %}
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+	<h3>¿Desea aceptar la solicitud de: <h3> 
+	<h3>Nombre:	{{ object.usuario.first_name }} {{object.usuario.last_name}}</h3>
+
+	<div class="row" >
+			<div class="col-md-8 col-md-offset-1">
+				<label >Marque la casilla para aceptar al usuario</label>
+				<input class="form-control" type="checkbox" name="aceptado">
+			</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-4">
+			<div class="form-group">
+				<button class="btn btn-primary "type="submit">Continuar</button>
+			</div>
+		</div>
+	</div>
+	
+</form>
+{% endblock %}

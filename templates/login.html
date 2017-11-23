@@ -12,13 +12,22 @@ Login
     <br>
     <br>
     <div class="row">
+        <div class="col-md-6 col-md-offset-1">
+                                    <img style="margin: 0 0 5px 20px; float: right;" src="http://sirius.utp.edu.co/visualization/oportunidades-cai/logo/logo_utp.png" alt="Castle" width="200" height="60" />
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-6 col-md-offset-3">
+            <h2>Observatorio Egresados</h2>
+
             <h1>Ingresar</h1>
             </div>
     </div>
-    {% if message%}
-    <b>{{message}}</b>
-    {% endif %}
+        <div class="col-md-6 col-md-offset-3">
+            {% if message%}
+            <b>{{message}}</b>
+            {% endif %}
+        </div>
     <form method="post">
     {% csrf_token %}
     <br>
