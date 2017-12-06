@@ -26,7 +26,7 @@ def login_page(request):
 				elif user.is_active and user.is_staff:
 					if user.last_login is None:
 						login(request,user)
-						return reverse_lazy('usuario:cambio')
+						return render(request,'usuario/cambio.html')
 					else:
 						login(request,user)
 						message = "ingresado como administrador"
@@ -38,7 +38,7 @@ def login_page(request):
 					else:
 						login(request,user)
 						message = "ingresado como egresado"
-						return render(request,'egresado/index.html')
+						return redirect('egresado:vistami',pk=request.user.id)
 				else:
 					message = "usuario inactivo"
 			else:

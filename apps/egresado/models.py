@@ -44,6 +44,7 @@ class Egresado(models.Model):
 	departamento= models.ForeignKey(Departamento,null=True,blank=True)
 	pais= models.ForeignKey(Pais,null=True,blank=True)
 	interes = models.ManyToManyField(Interes,blank=True)
+	image= models.ImageField(upload_to='profile_image',blank=True,default='apps/egresado/media/profile_image/perfil.jpg')
 
 
 class Amigos(models.Model):

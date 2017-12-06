@@ -1,0 +1,27 @@
+{% extends 'base/baseEgresado.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+		</tr>
+		
+	</thead>
+	<tbody>
+		{%if object_list %}
+		{%for noticia in object_list %}
+		<tr>
+			<td>{{noticia.desc_corta}}</td>
+			<td>
+				<a class="btn btn-primary" href="{% url 'noticia:ver_noticia' noticia.id %}">Ver</a>
+			</td>
+		</tr>
+		{%endfor%}
+
+		{%else%}
+		<h1>No hay noticias por ver </h1>
+		{%endif%}
+	</tbody>
+</table> 
+{% endblock%}

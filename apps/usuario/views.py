@@ -6,8 +6,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from apps.egresado.models import Egresado
-
-
+from django.core.mail import EmailMessage
 
 from apps.usuario.forms import RegistroForm, Perfil
 
@@ -31,11 +30,32 @@ class RegistroUsuario(CreateView):
 	form_class = RegistroForm
 	success_url = reverse_lazy('principal')
 
-class SolicitudAceptar(UpdateView):
+def SolicitudAceptar(request,id_usuario):
+	usuario = User.objects.get(id=id_usuario)
+	if request.method == 'GET':
+		form = Perfil(instance=usuario)
+	else:
+		form = Perfil(request.POST,instance=usuario)
+		if form.is_valid():
+			asunto = 'Solicitud aceptada'
+			mensaje= 'Su solicitud a la plataforma de egresados fue aceptada, ahora podra entrar al sistema'
+			mail = EmailMessage(asunto,mensaje,to=[usuario.email])
+			mail.send()
+			form.save()
+		return redirect('usuario:usuario_listar')
+	return render(request,'usuario/aceptar.html',{'form':form})
+
+class SolicitudAceptar2(UpdateView):
 	model= User
 	form_class = Perfil
 	template_name= 'usuario/aceptar.html'
 	success_url= reverse_lazy('usuario:usuario_listar')
+
+class SolicitudAceptarADM(UpdateView):
+	model= User
+	form_class = Perfil
+	template_name= 'usuario/aceptar.html'
+	success_url= reverse_lazy('usuario:admin_listar')
 
 class SolicitudRegistro(ListView):
 	model = User
@@ -59,14 +79,14 @@ class SolicitudDelete(DeleteView):
 def Selecccion(request):
 	return render(request,'usuario/seleccion.html')
 
-def Egresado(request):
-	return render(request,'egresado/index.html')
-
 def Administrador(request):
 	return render(request,'usuario/admIndex.html')
 
 def Super(request):
 	return render(request,'usuario/super_Index.html')
+
+def EgresadoP(request):
+	return render(request,'egresado/index.html')
 
 def cambio(request):
 	return render(request,'usuario/cambio.html')

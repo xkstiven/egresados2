@@ -1,0 +1,15 @@
+{% extends 'base/baseEgresado.html' %}
+
+{%block content%}
+<img src="{{object.image.url}}" width="150" height="150"/>
+<div>
+<a class="link" href="{% url 'egresado:avatar' user.id %}">Cambiar Avatar</a>
+</div>
+<h2>Carrera: {{ object.carrera }}</h2>
+<h2>fecha nacimiento: {{ object.nacimiento }}</h2>
+<h2>Año de grado: {{ object.grado }}</h2>
+<h2>Sexo: {{ object.sexo }}</h2>
+<h2>Intereses: {{ object.interes }}</h2>
+
+
+{%endblock%}

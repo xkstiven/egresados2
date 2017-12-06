@@ -7,6 +7,11 @@ class AmigoForm(forms.ModelForm):
 	class Meta:
 		model = Amigos
 		fields = ['aceptado']
+
+class CambioAvatar(forms.ModelForm):
+	class Meta:
+		model = Egresado
+		fields= ['image']
 		
 class AmigoAcep(forms.ModelForm):
 	class Meta:

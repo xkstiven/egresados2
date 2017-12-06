@@ -10,8 +10,8 @@ Egresados
 <form method="post">
 	{% csrf_token %}
 	<h3>¿Desea aceptar la solicitud de: <h3> 
-	<h3>usuario:	{{ object.username}} </h3>
-	<h3>Correo: {{ object.email }}</h3>
+	<h3>usuario:	{{ usuario.username}} </h3>
+	<h3>Correo: {{ usuario.email }}</h3>
 	
 	<div class="row" style='display:none;'>
 		<div class="col-md-8 col-md-offset-2">
